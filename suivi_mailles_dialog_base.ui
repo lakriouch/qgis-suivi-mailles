@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SuiviMaillesDialogBase</class>
+ <widget class="QDialog" name="SuiviMaillesDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Suivi faune/flore par mailles</string>
+  </property>
+
+  <layout class="QVBoxLayout" name="verticalLayout_main">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+
+     <!-- Onglet 1 : Préparation bureau -->
+     <widget class="QWidget" name="tab_preparation">
+      <attribute name="title">
+       <string>Préparation bureau</string>
+      </attribute>
+
+      <layout class="QVBoxLayout" name="verticalLayout_preparation">
+
+       <!-- Paramètres du suivi -->
+       <item>
+        <widget class="QGroupBox" name="gb_parametres_suivi">
+         <property name="title">
+          <string>Paramètres du suivi</string>
+         </property>
+
+         <layout class="QFormLayout" name="formLayout_parametres_suivi">
+            <item row="0" column="0">
+                <widget class="QLabel" name="label_site">
+                <property name="text">
+                <string>Site :</string>
+                </property>
+                </widget>
+            </item>
+            
+            <item row="0" column="1">
+            <widget class="QLineEdit" name="site">
+            <property name="placeholderText">
+            <string>Tapez le nom du site...</string>
+            </property>
+            <property name="clearButtonEnabled">
+            <bool>true</bool>
+            </property>
+            </widget>
+            </item>
+
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_taille_maille">
+            <property name="text">
+             <string>Taille de maille :</string>
+            </property>
+           </widget>
+          </item>
+          
+          <item row="1" column="1">
+           <widget class="QComboBox" name="cb_taille_maille">
+            <item>
+             <property name="text">
+              <string>5 m</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>10 m</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>25 m</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>50 m</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>100 m</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_date_suivi">
+            <property name="text">
+             <string>Date du suivi :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QDateEdit" name="date_suivi">
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+            <property name="displayFormat">
+             <string>dd/MM/yyyy</string>
+            </property>
+           </widget>
+          </item>
+
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_groupe">
+            <property name="text">
+             <string>Groupe :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="cb_groupe">
+            <item>
+             <property name="text">
+              <string>faune</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>flore</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+
+
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_espece">
+            <property name="text">
+             <string>Espèce :</string>
+            </property>
+           </widget>
+         </item>
+         
+        <item row="4" column="1">
+        <widget class="QLineEdit" name="espece">
+        <property name="placeholderText">
+        <string>Tapez le nom d'espèce...</string>
+        </property>
+        <property name="clearButtonEnabled">
+        <bool>true</bool>
+        </property>
+        </widget>
+        </item>
+
+        <item row="5" column="0">
+        <widget class="QLabel" name="label_observateur">
+        <property name="text">
+        <string>Observateur principal :</string>
+        </property>
+        </widget>
+        </item>
+        <item row="5" column="1">
+        <widget class="QLineEdit" name="observateur">
+        <property name="placeholderText">
+        <string>Tapez le nom d'observateur...</string>
+        </property>
+        <property name="clearButtonEnabled">
+        <bool>true</bool>
+        </property>
+        </widget>
+        </item>
+
+    
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Recherche du suivi existant -->
+       <item>
+        <widget class="QGroupBox" name="gb_recherche_suivi">
+         <property name="title">
+          <string>Recherche du suivi existant</string>
+         </property>
+
+         <layout class="QVBoxLayout" name="verticalLayout_recherche_suivi">
+
+          <item>
+           <widget class="QLabel" name="label_recherche_suivi_info">
+            <property name="text">
+             <string>Le plugin recherchera un suivi existant avec les paramètres saisis ci-dessus.</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QPushButton" name="btn_rechercher_suivi">
+            <property name="text">
+             <string>Rechercher le suivi</string>
+            </property>
+           </widget>
+          </item>
+
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Export GeoPackage -->
+       <item>
+        <widget class="QGroupBox" name="gb_export_gpkg">
+         <property name="title">
+          <string>Export GeoPackage</string>
+         </property>
+
+         <layout class="QFormLayout" name="formLayout_export_gpkg">
+
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_fichier_gpkg_export">
+            <property name="text">
+             <string>Fichier GeoPackage :</string>
+            </property>
+           </widget>
+          </item>
+
+          <item row="0" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_fichier_gpkg_export">
+            <item>
+             <widget class="QLineEdit" name="le_fichier_gpkg_export">
+              <property name="placeholderText">
+               <string>Choisir le fichier .gpkg à créer...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_parcourir_export">
+              <property name="text">
+               <string>Parcourir...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Actions -->
+       <item>
+        <widget class="QGroupBox" name="gb_actions_preparation">
+         <property name="title">
+          <string>Actions</string>
+         </property>
+
+         <layout class="QHBoxLayout" name="horizontalLayout_actions_preparation">
+
+          <item>
+           <widget class="QPushButton" name="btn_creer_suivi">
+            <property name="text">
+             <string>Créer le suivi</string>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QPushButton" name="btn_export_gpkg">
+            <property name="text">
+             <string>Exporter le GeoPackage</string>
+            </property>
+           </widget>
+          </item>
+
+         </layout>
+        </widget>
+       </item>
+
+
+
+      </layout>
+     </widget>
+
+     <!-- Onglet 2 -->
+<!-- Onglet 2 : Suivi terrain -->
+<widget class="QWidget" name="tab_terrain">
+ <attribute name="title">
+  <string>Réalisation du suivi</string>
+ </attribute>
+
+ <layout class="QVBoxLayout" name="verticalLayout_terrain">
+
+  <!-- Chargement GeoPackage terrain -->
+  <item>
+   <widget class="QGroupBox" name="gb_chargement_gpkg_terrain">
+    <property name="title">
+     <string>GeoPackage terrain</string>
+    </property>
+
+    <layout class="QFormLayout" name="formLayout_chargement_gpkg_terrain">
+
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_fichier_gpkg_terrain">
+       <property name="text">
+        <string>Fichier GeoPackage :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="0" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_fichier_gpkg_terrain">
+       <item>
+        <widget class="QLineEdit" name="le_fichier_gpkg_terrain">
+         <property name="placeholderText">
+          <string>Sélectionner le GeoPackage terrain...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_parcourir_terrain">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_couche_mailles_terrain">
+       <property name="text">
+        <string>Couche mailles :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="le_couche_mailles_terrain">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="placeholderText">
+        <string>mailles_suivi</string>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+  <!-- Actions chargement -->
+  <item>
+   <widget class="QGroupBox" name="gb_actions_chargement_terrain">
+    <property name="title">
+     <string>Chargement</string>
+    </property>
+
+    <layout class="QHBoxLayout" name="horizontalLayout_actions_chargement_terrain">
+
+     <item>
+      <widget class="QPushButton" name="btn_charger_gpkg_terrain">
+       <property name="text">
+        <string>Charger le GeoPackage</string>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QPushButton" name="btn_zoom_mailles_terrain">
+       <property name="text">
+        <string>Zoom sur les mailles</string>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+  <!-- Suivi actif (session multi-espèces) -->
+  <item>
+   <widget class="QGroupBox" name="gb_suivi_actif_terrain">
+    <property name="title">
+     <string>Suivi actif</string>
+    </property>
+
+    <layout class="QVBoxLayout" name="verticalLayout_suivi_actif_terrain">
+
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_suivi_actif_terrain">
+       <item>
+        <widget class="QComboBox" name="cb_suivi_actif_terrain"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_decharger_suivi_terrain">
+         <property name="text">
+          <string>Décharger</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+
+     <item>
+      <widget class="QLabel" name="label_suivi_actif_terrain">
+       <property name="text">
+        <string>Aucun suivi actif</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+  <!-- Localisation GPS -->
+  <item>
+   <widget class="QGroupBox" name="gb_gps_terrain">
+    <property name="title">
+     <string>Localisation GPS</string>
+    </property>
+
+    <layout class="QHBoxLayout" name="horizontalLayout_gps_terrain">
+
+     <item>
+      <widget class="QToolButton" name="tb_open_gps_panel">
+       <property name="toolTip">
+        <string>Ouvrir le panneau GPS de QGIS</string>
+       </property>
+       <property name="text">
+        <string>GPS</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonIconOnly</enum>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QLabel" name="label_gps_info">
+       <property name="text">
+        <string>Afficher la position GPS de la tablette dans QGIS.</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+
+  <!-- Mode clic terrain -->
+  <item>
+   <widget class="QGroupBox" name="gb_mode_clic_terrain">
+    <property name="title">
+     <string>Mode clic de suivi</string>
+    </property>
+
+    <layout class="QVBoxLayout" name="verticalLayout_mode_clic_terrain">
+
+     <item>
+      <widget class="QLabel" name="label_mode_clic_info">
+       <property name="text">
+        <string>Le mode clic permet de modifier presence_absence directement en cliquant sur une maille dans QGIS.</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_mode_clic_terrain">
+
+       <item>
+        <widget class="QPushButton" name="btn_lancer_suivi">
+         <property name="text">
+          <string>Lancer le suivi</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QPushButton" name="btn_arreter_suivi">
+         <property name="text">
+          <string>Arrêter le suivi</string>
+         </property>
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+
+      </layout>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+  <!-- Sauvegarde -->
+  <item>
+   <widget class="QGroupBox" name="gb_sauvegarde_terrain">
+    <property name="title">
+     <string>Sauvegarde</string>
+    </property>
+
+    <layout class="QHBoxLayout" name="horizontalLayout_sauvegarde_terrain">
+
+     <item>
+      <widget class="QPushButton" name="btn_sauvegarder_gpkg_terrain">
+       <property name="text">
+        <string>Sauvegarder le GeoPackage</string>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+ </layout>
+</widget>
+
+
+     <!-- Onglet 3 -->
+<!-- Onglet 3 : Import retour terrain -->
+<widget class="QWidget" name="tab_import">
+ <attribute name="title">
+  <string>Transférer le GeoPackage</string>
+ </attribute>
+
+ <layout class="QVBoxLayout" name="verticalLayout_import">
+
+  <!-- Sélection GeoPackage retour -->
+  <item>
+   <widget class="QGroupBox" name="gb_selection_gpkg_import">
+    <property name="title">
+     <string>GeoPackage a transférer </string>
+    </property>
+
+    <layout class="QFormLayout" name="formLayout_selection_gpkg_import">
+
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_fichier_gpkg_import">
+       <property name="text">
+        <string>Fichier GeoPackage :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="0" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_fichier_gpkg_import">
+       <item>
+        <widget class="QLineEdit" name="le_fichier_gpkg_import">
+         <property name="placeholderText">
+          <string>Sélectionner le GeoPackage a transférer ...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_parcourir_import">
+         <property name="text">
+          <string>Parcourir...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+  <!-- Lecture metadata -->
+  <item>
+   <widget class="QGroupBox" name="gb_metadata_import">
+    <property name="title">
+     <string>Métadonnées du suivi</string>
+    </property>
+
+    <layout class="QFormLayout" name="formLayout_metadata_import">
+
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_uuid_suivi_import">
+       <property name="text">
+        <string>UUID suivi :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="le_uuid_suivi_import">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_site_import">
+       <property name="text">
+        <string>Site :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="le_site_import">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_espece_import">
+       <property name="text">
+        <string>Espèce :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="le_espece_import">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_taille_maille_import">
+       <property name="text">
+        <string>Taille de maille :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="le_taille_maille_import">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_date_obs_import">
+       <property name="text">
+        <string>Date du suivi :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="le_date_obs_import">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+  <!-- Contrôle des données -->
+  <item>
+   <widget class="QGroupBox" name="gb_controle_import">
+    <property name="title">
+     <string>Contrôle des données</string>
+    </property>
+
+    <layout class="QFormLayout" name="formLayout_controle_import">
+
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_nb_mailles_total_import">
+       <property name="text">
+        <string>Nombre total de mailles :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="le_nb_mailles_total_import">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_nb_mailles_renseignees_import">
+       <property name="text">
+        <string>Mailles renseignées :</string>
+       </property>
+      </widget>
+     </item>
+
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="le_nb_mailles_renseignees_import">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+  <!-- Actions import -->
+  <item>
+   <widget class="QGroupBox" name="gb_actions_import">
+    <property name="title">
+     <string>Actions</string>
+    </property>
+
+    <layout class="QHBoxLayout" name="horizontalLayout_actions_import">
+
+     <item>
+      <widget class="QPushButton" name="btn_lire_metadata_import">
+       <property name="text">
+        <string>Lire et Contrôler</string>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QPushButton" name="btn_transferer_resultats">
+       <property name="text">
+        <string>Transférer dans la base</string>
+       </property>
+      </widget>
+     </item>
+
+    </layout>
+   </widget>
+  </item>
+
+
+ </layout>
+</widget>
+
+
+     <!-- Onglet 4 -->
+<!-- Onglet 4 : Journal  -->
+<widget class="QWidget" name="tab_journal">
+ <attribute name="title">
+  <string>Journal</string>
+ </attribute>
+
+ <layout class="QVBoxLayout" name="verticalLayout_journal">
+
+  <item>
+   <widget class="QLabel" name="lbl_journal">
+    <property name="text">
+     <string>Journal des opérations du plugin</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold; font-size: 12pt;</string>
+    </property>
+   </widget>
+  </item>
+
+  <item>
+   <widget class="QPlainTextEdit" name="txt_journal">
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Les messages de préparation, terrain et import apparaîtront ici...</string>
+    </property>
+   </widget>
+  </item>
+
+  <item>
+   <layout class="QHBoxLayout" name="horizontalLayout_actions_journal">
+
+    <item>
+     <widget class="QPushButton" name="btn_effacer_journal">
+      <property name="text">
+       <string>Effacer le journal</string>
+      </property>
+     </widget>
+    </item>
+
+    <item>
+     <spacer name="horizontalSpacer_journal">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+
+   </layout>
+  </item>
+
+ </layout>
+</widget>
+
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,47 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=SuiviMailles
+qgisMinimumVersion=3.0
+description=Plugin de suivi faune/flore par mailles avec export et import Geopackage
+version=0.1
+author=Lakriouch Ikram - CEN HAUTS-DE-FRANCE
+email=lakriouchikram@gmail.com
+
+about=Plugin QGIS permet de gérer un suivi faune/flore par mailles en trois étapes : préparation du suivi au bureau, export d’un GeoPackage pour le terrain hors réseau, puis import des résultats de présence/absence dans une base PostgreSQL/PostGIS. Il facilite la sélection du site, de l’espèce, de l’observateur et de la taille de maille, ainsi que la traçabilité des suivis réalisés.
+
+tracker=http://bugs
+repository=http://repo
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=no
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=python
+
+homepage=http://homepage
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+Category of the plugin: Raster, Vector, Database or Web
+# category=
+
+# If the plugin can run on QGIS Server.
+server=False
+
